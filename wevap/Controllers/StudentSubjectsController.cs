@@ -18,7 +18,7 @@ namespace wevap.Controllers
         // GET: StudentSubjects
         public ActionResult Index()
         {
-            return View(db.tblStudentSubject.ToList());
+            return View(db.tblScores.ToList());
         }
 
         // GET: StudentSubjects/Details/5
@@ -28,7 +28,7 @@ namespace wevap.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            StudentSubject studentSubject = db.tblStudentSubject.Find(id);
+            StudentSubject studentSubject = db.tblScores.Find(id);
             if (studentSubject == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace wevap.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.tblStudentSubject.Add(studentSubject);
+                db.tblScores.Add(studentSubject);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace wevap.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            StudentSubject studentSubject = db.tblStudentSubject.Find(id);
+            StudentSubject studentSubject = db.tblScores.Find(id);
             if (studentSubject == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace wevap.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            StudentSubject studentSubject = db.tblStudentSubject.Find(id);
+            StudentSubject studentSubject = db.tblScores.Find(id);
             if (studentSubject == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace wevap.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            StudentSubject studentSubject = db.tblStudentSubject.Find(id);
-            db.tblStudentSubject.Remove(studentSubject);
+            StudentSubject studentSubject = db.tblScores.Find(id);
+            db.tblScores.Remove(studentSubject);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

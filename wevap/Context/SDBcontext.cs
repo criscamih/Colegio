@@ -11,7 +11,7 @@ namespace wevap.Context
     {
         public DbSet<Student> tblStudent { get; set; }
         public DbSet<Subject> tblSubject { get; set; }
-        public DbSet<StudentSubject> tblStudentSubject { get; set; }
+        public DbSet<StudentSubject> tblScores{ get; set; }
         public DbSet<Teacher> tblTeacher { get; set; }
         public DbSet<Level> tblLevel { get; set; }
     }
