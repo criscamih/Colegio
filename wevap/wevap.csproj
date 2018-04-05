@@ -214,6 +214,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModeloReporte\ScoreReporte.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Level.cs" />
@@ -307,6 +308,9 @@
     <Content Include="Views\Levels\Details.cshtml" />
     <Content Include="Views\Levels\Edit.cshtml" />
     <Content Include="Views\Levels\Index.cshtml" />
+    <Content Include="Views\Teachers\TeacherList.cshtml" />
+    <Content Include="Views\Teachers\ScoreTeacher.cshtml" />
+    <Content Include="Views\Teachers\SubjectTeacher.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

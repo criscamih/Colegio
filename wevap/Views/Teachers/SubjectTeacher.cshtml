@@ -1,0 +1,17 @@
+﻿@model wevap.Models.Teacher
+@{
+    ViewBag.Title = "Add Materias";
+}
+<br />
+
+<h2>Asignar Materias A:  @Html.DisplayFor(x=>x.NameTeacher) </h2>
+<hr />
+<br />
+<p>
+    <br />
+    <br />
+    @Html.ActionLink("Back to List", "TeacherList")
+</p>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

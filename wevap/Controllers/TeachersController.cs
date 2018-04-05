@@ -20,7 +20,36 @@ namespace wevap.Controllers
         {
             return View(db.tblTeacher.ToList());
         }
-
+        public ActionResult TeacherList()
+        {
+            return View(db.tblTeacher.ToList());
+        }
+        public ActionResult ScoreTeacher(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Teacher teacher = db.tblTeacher.Find(id);
+            if (teacher == null)
+            {
+                return HttpNotFound();
+            }
+            return View(teacher);
+        }
+        public ActionResult SubjectTeacher(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Teacher teacher = db.tblTeacher.Find(id);
+            if (teacher == null)
+            {
+                return HttpNotFound();
+            }
+            return View(teacher);
+        }
         // GET: Teachers/Details/5
         public ActionResult Details(string id)
         {
