@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using wevap.Context;
+using wevap.Datos;
 using wevap.Models;
 
 namespace wevap.Controllers
@@ -14,7 +16,9 @@ namespace wevap.Controllers
     public class TeachersController : Controller
     {
         private SDBcontext db = new SDBcontext();
-
+        private SubjectData subject = new SubjectData();
+        private TeacherData teacherData = new TeacherData();
+        private Teacher teacherGlobal = new Teacher();
         // GET: Teachers
         public ActionResult Index()
         {
@@ -37,7 +41,8 @@ namespace wevap.Controllers
             }
             return View(teacher);
         }
-        public ActionResult SubjectTeacher(string id)
+        //GEt Vista para asignar materias al docente
+        public ActionResult SubjectTeacher(string id = null)
         {
             if (id == null)
             {
@@ -48,7 +53,41 @@ namespace wevap.Controllers
             {
                 return HttpNotFound();
             }
-            return View(teacher);
+            else
+            {
+                ViewBag.subjects = subject.GetSubjects();
+                return View(teacher);
+            }
+
+        }
+        //Asignar materias a profesores
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SubjectTeacher(string id, int[] subjects = null)
+        {
+            Teacher teacher = db.tblTeacher.Find(id);
+            var lista = teacher.Subjects.ToList();
+            if (teacher.Subjects.Count > 0)
+            {
+                lista.Clear(); 
+                teacher.Subjects = lista;
+            }
+            
+  
+           if(subjects!=null)
+            {
+                foreach (var s in subjects)
+                {
+                    teacher.Subjects.Add(new Subject { Id_Subject = s });
+                }
+                teacherData.SaveTeacherSubject(teacher);
+                return RedirectToAction("TeacherList");
+            }
+            else
+            {
+                return View();
+            }
+            
         }
         // GET: Teachers/Details/5
         public ActionResult Details(string id)

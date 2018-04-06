@@ -1,17 +1,58 @@
 ﻿@model wevap.Models.Teacher
 @{
     ViewBag.Title = "Add Materias";
+    List<wevap.Models.Subject> subjects = ViewBag.subjects;
 }
 <br />
 
-<h2>Asignar Materias A:  @Html.DisplayFor(x=>x.NameTeacher) </h2>
+<h2>Asignar Materias A:  @Html.DisplayFor(x => x.NameTeacher) </h2>
 <hr />
 <br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="col-md-5">
+                <ul class="list-group">
+                    @foreach (var subject in subjects)
+                    {
+                        var state = false;
+                        foreach (var s in Model.Subjects)
+                        {
+                            if (subject.Id_Subject == s.Id_Subject)
+                            {
+                                state = true;
+                                break;
+                            }
+                        }
+                        <li class="list-group-item">
+                            <label>
+                                <input type="checkbox" @(state ? "checked" : "") name="subjects" value="@subject.Id_Subject" />
+                                @subject.Description
+                            </label>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="ADD" class="btn btn-default" />
+        </div>
+    </div>
+}
+
 <p>
     <br />
     <br />
     @Html.ActionLink("Back to List", "TeacherList")
 </p>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
