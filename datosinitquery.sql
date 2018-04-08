@@ -32,3 +32,15 @@ INSERT INTO TeacherSubjects VALUES('68840',1)
 INSERT INTO TeacherSubjects VALUES('68840',8)
 
 DELETE FROM TeacherSubjects where Teacher_DNI='68840'
+
+INSERT INTO tblStudent(DNI,NameStudent,DateInput) VALUES('80123456','Abbie Cornish','2015-2-1')
+INSERT INTO tblStudent(DNI,NameStudent,DateInput) VALUES('456132','Homero','2016-2-1')
+INSERT INTO tblStudent(DNI,NameStudent,DateInput) VALUES('741852','Barto','2016-6-15')
+INSERT INTO tblStudent(DNI,NameStudent,DateInput) VALUES('966385','Judd','2017-2-1')
+INSERT INTO tblStudent(DNI,NameStudent,DateInput) VALUES('852963','Lisa','2015-6-15')
+
+select *from tblStudent
+select *from tblSubject 
+select *from tblLevel
+select *from tblScores
+

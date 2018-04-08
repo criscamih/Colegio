@@ -1,0 +1,89 @@
+﻿@model wevap.Models.Student
+@{
+    ViewBag.Title = "AddStudentSubject";
+    List<wevap.Models.QueryModels.SubjectLevel> items = ViewBag.query;
+    List<wevap.Models.Level> levels = ViewBag.level;
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<h2>Añadir Asignaturas a: @Html.DisplayFor(model => model.NameStudent)</h2>
+<hr />
+<br />
+<div class="container">
+    <div class="col-md-2">
+        
+        <strong>Cursos:</strong>
+        <br />
+        @foreach (var level in levels)
+         {
+
+                <ul class="list-group">
+
+                    <li class="list-group-item">
+                        <input type="checkbox" id="chkLevels" name="levels" value="@level.Id_Level" />
+                        @level.Stage
+                    </li>
+                </ul>
+
+         }
+    </div>
+    <div class="col-md-4">
+        <table class="table-bordered">
+            <thead>
+                <tr>
+                    <th>Materia</th>
+                    <th>Créditos</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in items)
+                 {
+                    <tr>
+                     <td>@item.Description</td>
+                     <td>@item.Credits</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+<hr />
+<br />
+<button id="enviar">enviar</button>
+<input type="checkbox" id="chk" value="prueba"/>
+@*<ul class="list-group">
+    @foreach (var level in levels)
+    {
+        var state = false;
+        foreach (var s in Model.Subjects)
+        {
+            if (subject.Id_Subject == s.Id_Subject)
+            {
+                state = true;
+                break;
+            }
+        }
+        <li class="list-group-item">
+            <label>
+                <input type="checkbox" @(state ? "checked" : "") name="levels" value="@level.Id_Level />
+                @level.Stage
+            </label>
+        </li>
+    }
+
+</ul>*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#chk').on("change", function () {
+            if ($(this).is(':checked'))
+                alert("checkbox seleccionado")
+            else
+                alert("checkbox no seleccionado")
+        })
+        $('#enviar').on('click', function (event) {
+            console.log("hello")
+        })
+    })
+   
+</script>

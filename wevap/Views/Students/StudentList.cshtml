@@ -1,0 +1,44 @@
+﻿@model IEnumerable<wevap.Models.Student>
+
+@{
+    ViewBag.Title = "StudentList";
+}
+
+<h2>StudentList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameStudent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInput)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOutput)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameStudent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInput)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOutput)
+        </td>
+        <td>
+            @Html.ActionLink("+Materias", "AddStudentSubject", new { id=item.DNI }) |
+            @Html.ActionLink("+Notas", "AddTeacherScore", new { id=item.DNI }) 
+        </td>
+    </tr>
+}
+
+</table>

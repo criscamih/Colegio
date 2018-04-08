@@ -210,7 +210,10 @@
     <Compile Include="Controllers\StudentSubjectsController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
+    <Compile Include="Datos\LevelData.cs" />
+    <Compile Include="Datos\StudentData.cs" />
     <Compile Include="Datos\SubjectData.cs" />
+    <Compile Include="Datos\SubjectLevelData.cs" />
     <Compile Include="Datos\TeacherData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -221,6 +224,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Level.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\QueryModels\SubjectLevel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentSubject.cs" />
     <Compile Include="Models\Subject.cs" />
@@ -311,8 +315,10 @@
     <Content Include="Views\Levels\Edit.cshtml" />
     <Content Include="Views\Levels\Index.cshtml" />
     <Content Include="Views\Teachers\TeacherList.cshtml" />
-    <Content Include="Views\Teachers\ScoreTeacher.cshtml" />
     <Content Include="Views\Teachers\SubjectTeacher.cshtml" />
+    <Content Include="Views\Students\StudentList.cshtml" />
+    <Content Include="Views\Students\AddStudentSubject.cshtml" />
+    <Content Include="Views\Students\AddTeacherScore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

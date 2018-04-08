@@ -21,8 +21,9 @@ namespace wevap.Models
         [Display(Name = "Fecha Ingreso")]
         public DateTime DateInput { get; set; }
         [DataType(DataType.Date)]
+        [Required(AllowEmptyStrings =true)]
         [Display(Name = "Fecha Retiro")]
-        public DateTime DateOutput { get; set; }
+        public Nullable<DateTime> DateOutput { get; set; }
         public virtual ICollection<StudentSubject> Subjects { get; set; }
     }
 }
