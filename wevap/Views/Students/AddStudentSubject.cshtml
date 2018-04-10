@@ -13,18 +13,17 @@
         
         <strong>Cursos:</strong>
         <br />
-        @foreach (var level in levels)
-         {
+        <ul class="list-group" id="lista">
+            @foreach (var level in levels)
+             {
 
-                <ul class="list-group">
+                <li class="list-group-item">
+                    <input type="checkbox" name="@level.Stage"  value="@level.Id_Level" />
+                    @level.Stage
+                </li>
 
-                    <li class="list-group-item">
-                        <input type="checkbox" id="chkLevels" name="levels" value="@level.Id_Level" />
-                        @level.Stage
-                    </li>
-                </ul>
-
-         }
+                }
+        </ul>
     </div>
     <div class="col-md-4">
         <table class="table-bordered">
@@ -51,36 +50,19 @@
 <hr />
 <br />
 <button id="enviar">enviar</button>
-<input type="checkbox" id="chk" value="prueba"/>
-@*<ul class="list-group">
-    @foreach (var level in levels)
-    {
-        var state = false;
-        foreach (var s in Model.Subjects)
-        {
-            if (subject.Id_Subject == s.Id_Subject)
-            {
-                state = true;
-                break;
-            }
-        }
-        <li class="list-group-item">
-            <label>
-                <input type="checkbox" @(state ? "checked" : "") name="levels" value="@level.Id_Level />
-                @level.Stage
-            </label>
-        </li>
-    }
 
-</ul>*@
+
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#chk').on("change", function () {
-            if ($(this).is(':checked'))
-                alert("checkbox seleccionado")
-            else
-                alert("checkbox no seleccionado")
-        })
+        if ($('input[name=X]').prop('checked')) {
+            console.log($(this).text())
+        }
+        else {
+            console.log("nada")
+        }
+           
+            
+
         $('#enviar').on('click', function (event) {
             console.log("hello")
         })
