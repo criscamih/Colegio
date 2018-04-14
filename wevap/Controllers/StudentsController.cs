@@ -23,6 +23,7 @@ namespace wevap.Controllers
         public ActionResult Index()
         {
             return View(db.tblStudent.ToList());
+
         }
         public ActionResult StudentList()
         {

@@ -18,7 +18,7 @@
              {
 
                 <li class="list-group-item">
-                    <input type="checkbox" name="@level.Stage"  value="@level.Id_Level" />
+                    <input type="checkbox" id="@level.Stage" name="@level.Stage"  value="@level.Id_Level" />
                     @level.Stage
                 </li>
 
@@ -54,15 +54,43 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        if ($('input[name=X]').prop('checked')) {
-            console.log($(this).text())
-        }
-        else {
-            console.log("nada")
-        }
-           
-            
+        var estado = false;
+        $(':checkbox').change(function () {  
 
+            if ($(this).is(":checked")) {
+                if ($(this).val() == 1) {
+                    console.log("curso 9")
+                    $("#X").attr('disabled', 'disabled')
+                    $("#XI").attr('disabled', 'disabled')
+                    
+                }
+                else if ($(this).val() == 2) {
+                    console.log("curso 10")
+                    $("#IX").attr('disabled', 'disabled')
+                    $("#XI").attr('disabled', 'disabled')
+                }
+                else {
+                    console.log("curso 11")
+                    $("#IX").attr('disabled', 'disabled')
+                    $("#X").attr('disabled', 'disabled')
+                }
+               
+            } else {
+                console.log("auish")
+                $("#IX").removeAttr('disabled')
+                $("#X").removeAttr('disabled')
+                $("#XI").removeAttr('disabled')
+            }
+            
+        })
+        //$('#X').change(function () {
+        //    if($(this).is(":checked"))
+        //        console.log("auish")
+        //    else
+        //        console.log("naa")
+        //})
+
+        console.log(estado);
         $('#enviar').on('click', function (event) {
             console.log("hello")
         })

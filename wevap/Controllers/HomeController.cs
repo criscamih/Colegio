@@ -26,5 +26,10 @@ namespace wevap.Controllers
 
             return View();
         }
+
+        public ActionResult Questions()
+        {
+            return View();
+        }
     }
 }
